@@ -1,0 +1,54 @@
+{
+    "name": "easoblue/larahelper",
+    "description": "Laravel helpers.",
+    "keywords": [
+        "easoblue",
+        "larahelper"
+    ],
+    "homepage": "https://github.com/easoblue/larahelper",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Nisar Ahmed",
+            "email": "nisar@easoblue.com",
+            "role": "Full stack web developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2|^8.0",
+        "illuminate/support": "^5.8|^6.0|^7.0|^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Easoblue\\LaraHelper\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Easoblue\\LaraHelper\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Easoblue\\LaraHelper\\LaraHelperServiceProvider"
+            ],
+            "aliases": {
+                "LaraHelper": "Easoblue\\LaraHelper\\LaraHelperFacade"
+            }
+        }
+    }
+}
