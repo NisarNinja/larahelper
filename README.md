@@ -1,11 +1,10 @@
-# Very short description of the package
+# Useful helpers for every laravel project
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/easoblue/larahelper.svg?style=flat-square)](https://packagist.org/packages/easoblue/larahelper)
 [![Build Status](https://img.shields.io/travis/easoblue/larahelper/master.svg?style=flat-square)](https://travis-ci.org/easoblue/larahelper)
 [![Quality Score](https://img.shields.io/scrutinizer/g/easoblue/larahelper.svg?style=flat-square)](https://scrutinizer-ci.com/g/easoblue/larahelper)
 [![Total Downloads](https://img.shields.io/packagist/dt/easoblue/larahelper.svg?style=flat-square)](https://packagist.org/packages/easoblue/larahelper)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
 
 ## Installation
 
@@ -17,15 +16,44 @@ composer require easoblue/larahelper
 
 ## Usage
 
+You can add alias for shorthand or import LaraHelper facade directly.
+
 ``` php
-// Usage description here
+use Easoblue\LaraHelper\Facade\LaraHelper;
+```
+
+Once ready you can use generateString method to generate random or unique string. You can pass paramter to generate specific type of string.
+
+``` php
+LaraHelper::generateString('alpha');
+```
+You can use checkUnique and chain with generateString, table name and column name will be required to validate the unique string.
+
+``` php
+LaraHelper::checkUnique('users','username')->generateString('alpha');
+```
+## All helpers
+``` php
+LaraHelper::checkUnique('users','username')->generateString('alpha');
+
+LaraHelper::checkUnique('users','username')->prefix('u_')->postfix('u_')->generateString('alpha');
+// prefix will be prepended to the generated string before checking unique.
+Same as postfix will be appended to the generated string before checking unique.
+
+
+// This method will format the error response and return the object with single validation error instead of array.
+
+// $validator is the intance of Illuminate\Validation\Validator class;
+if($validator->fails()){
+ return LaraHelper::formatValidatorError($validator);
+}
+
+LaraHelper::formatToCamelCase('format to camel case');
 ```
 
 ### Testing
 
-``` bash
-composer test
-```
+to be added.
 
 ### Changelog
 
@@ -47,7 +75,3 @@ If you discover any security related issues, please email issues@easoblue.com in
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## Laravel Package Boilerplate
-
-This package was generated using the [Laravel Package Boilerplate](https://laravelpackageboilerplate.com).
