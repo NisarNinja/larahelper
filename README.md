@@ -32,7 +32,7 @@ You can use checkUnique and chain with generateString, table name and column nam
 ``` php
 LaraHelper::checkUnique('users','username')->generateString('alpha');
 ```
-## All helpers
+
 ``` php
 LaraHelper::checkUnique('users','username')->generateString('alpha');
 
@@ -54,6 +54,11 @@ LaraHelper::formatToCamelCase('format to camel case');
 ### Testing
 
 to be added.
+
+
+## Complete documentation
+
+Complete documentation will be available at doc.easoblue.com
 
 ### Changelog
 
