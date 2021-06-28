@@ -116,7 +116,11 @@ class LaraHelper{
 
 	public function formatToSpacedText($text){
 		if($text){
-           return ucfirst(str_replace('_'," ",$text));
+           $text = str_replace('_'," ",$text));
+           $text = str_replace('-'," ",$text));
+           // $text = ucfirst($text);
+
+           return $text;
         }
 	}
 
