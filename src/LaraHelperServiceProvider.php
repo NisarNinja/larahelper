@@ -3,6 +3,10 @@
 namespace Easoblue\LaraHelper;
 
 use Easoblue\LaraHelper\Facade\LaraHelper as LaraHelperFacade;
+use Easoblue\LaraHelper\Facade\EString as EStringFacade;
+use Easoblue\LaraHelper\String\StringHelper;
+use Easoblue\LaraHelper\Facade\ERoute as ERouteFacade;
+use Easoblue\LaraHelper\Route\RouteHelper;
 use Easoblue\LaraHelper\LaraHelper;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Artisan;
@@ -54,5 +58,11 @@ class LaraHelperServiceProvider extends ServiceProvider
 
         $this->app->bind('LaraHelper', LaraHelper::class);
         $loader->alias('LaraHelper', LaraHelperFacade::class);
+
+        $this->app->bind('EString', StringHelper::class);
+        $loader->alias('EString', EStringFacade::class);
+
+        $this->app->bind('ERoute', RouteHelper::class);
+        $loader->alias('ERoute', ERouteFacade::class);
     }
 }
