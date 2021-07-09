@@ -10,6 +10,9 @@ return [
 			'options' => [
 				'default_subdomain' => 'forum'
 			],
+		],
+		'response' => [
+			'enable' => true,
 		]
 	],
 ];
